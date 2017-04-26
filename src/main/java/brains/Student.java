@@ -13,13 +13,13 @@ public class Student {
     private Long id;
 
     @Column
-    private String name;
-
-    @Column
     private String rfid;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "student")
     private List<Book> books;
+
+    @Column
+    private String nick;
 
     public Student(){};
 
@@ -29,14 +29,6 @@ public class Student {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getRfid() {
@@ -53,5 +45,13 @@ public class Student {
 
     public void setBooks(List<Book> books) {
         this.books = books;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 }

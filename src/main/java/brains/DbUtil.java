@@ -3,8 +3,6 @@ package brains;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.j256.ormlite.table.TableUtils;
-
 import java.sql.SQLException;
 
 /**
@@ -23,12 +21,12 @@ public class DbUtil {
     }
     private DbUtil(){
         try {
-            dbSource = new JdbcConnectionSource("jdbc:postgresql://localhost:32781/docker?user=docker&password=docker");
-//            TableUtils.createTable(dbSource, Book.class);
+            dbSource = new JdbcConnectionSource("jdbc:postgresql://localhost:32782/docker?user=docker&password=docker");
+            //TableUtils.createTable(dbSource, Book.class);
             bookDao = DaoManager.createDao(dbSource, Book.class);
-//            TableUtils.createTable(dbSource, Student.class);
+            //TableUtils.createTable(dbSource, Student.class);
             studentDao = DaoManager.createDao(dbSource, Student.class);
-//            TableUtils.createTable(dbSource, StudentsBook.class);
+            //TableUtils.createTable(dbSource, StudentsBook.class);
             studentsBookDao = DaoManager.createDao(dbSource, StudentsBook.class);
         } catch (SQLException e) {
             e.printStackTrace();

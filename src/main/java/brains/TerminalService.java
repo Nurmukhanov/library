@@ -1,30 +1,21 @@
 package brains;
 
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Created by olzhas on 20.04.17.
  */
 public class TerminalService {
-    public static void createBook(Book book) throws SQLException {
-        DbUtil.getInstance().getBookDao().create(book);
-    }
-    public static void createStudent(Student student) throws SQLException{
-        DbUtil.getInstance().getStudentDao().create(student);
+
+    public static void bindStudent(StudentDTO studentDTO) throws SQLException {
+        Student student = DbUtil.getInstance().getStudentDao().queryBuilder().where().eq("nick", studentDTO.getNick()).query().get(0);
+        student.setRfid(studentDTO.getRfid());
+        DbUtil.getInstance().getStudentDao().update(student);
     }
 
-    public static List<Student> getAllStudents() throws SQLException {
-        return DbUtil.getInstance().getStudentDao().queryForAll();
-    }
-
-    public void DeleteStudent(){
-    }
-    public void DeleteBook(){}
-    public void UpdateStudent(){}
-    public void UpdateBook(){}
-
-    public static List<Book> getAllBooks() throws SQLException {
-        return DbUtil.getInstance().getBookDao().queryForAll();
+    public static void bindBook(BookDTO bookDTO) throws SQLException {
+        Book book = DbUtil.getInstance().getBookDao().queryBuilder().where().eq("id", bookDTO.getId()).query().get(0);
+        book.setRfid(bookDTO.getRfid());
+        DbUtil.getInstance().getBookDao().update(book);
     }
 }

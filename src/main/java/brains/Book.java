@@ -12,12 +12,6 @@ public class Book {
     private Long id;
 
     @Column
-    private String isbn;
-
-    @Column
-    private String name;
-
-    @Column
     private String rfid;
 
     @Column
@@ -36,22 +30,6 @@ public class Book {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getRfid() {
@@ -77,4 +55,5 @@ public class Book {
     public void setStatus(Status status) {
         this.status = status;
     }
+
 }

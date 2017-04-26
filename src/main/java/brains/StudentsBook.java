@@ -1,6 +1,7 @@
 package brains;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by olzhas on 21.04.17.
